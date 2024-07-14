@@ -76,6 +76,8 @@ vim.keymap.set("n", "<leader>t", "<cmd>Tagbar<cr>", { desc = "Tagbar" })
 vim.keymap.set("n", "<leader>n", "<cmd>Neotree<cr>", { desc = "Neotree" })
 
 
+vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+vim.keymap.set("n", "<leader>t", "<cmd>Trouble<cr>", { desc = "Trouble" })
 
 
 -- EOL --
