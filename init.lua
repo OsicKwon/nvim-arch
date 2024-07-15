@@ -57,27 +57,36 @@ vim.opt.relativenumber = true
 vim.opt.statuscolumn = "%s %l %r "
 
 
+-- split
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+
 -- case ignore
 vim.opt.ignorecase =true
 vim.o.smartcase =true
 
 
+-- path
+vim.opt.autochdir = true
 
 -- KEYMAP
 -- 2024-07-14
 -- -- telescope
 vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
-vim.keymap.set("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Fuzzy Find" })
 vim.keymap.set("n", "<leader>h", "<cmd>Telescope oldfiles<cr>", { desc = "Old Files" })
 vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
 vim.keymap.set("n", "<leader>y", "<cmd>Telescope filetypes<cr>", { desc = "File Types" })
 
+vim.keymap.set("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Fuzzy Find" })
+vim.keymap.set("n", "<leader>r", "<cmd>Telescope live_grep<cr>", { desc = "Live Grep" })
+
 vim.keymap.set("n", "<leader>t", "<cmd>Tagbar<cr>", { desc = "Tagbar" })
 vim.keymap.set("n", "<leader>n", "<cmd>Neotree<cr>", { desc = "Neotree" })
 
-
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
-vim.keymap.set("n", "<leader>t", "<cmd>Trouble<cr>", { desc = "Trouble" })
+vim.keymap.set("n", "<leader>T", "<cmd>Trouble<cr>", { desc = "Trouble" })
+vim.keymap.set("n", "<leader>c", "<cmd>changes<cr>", { desc = "changes" })
 
 
 -- EOL --

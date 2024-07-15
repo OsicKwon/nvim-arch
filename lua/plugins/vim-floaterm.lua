@@ -3,9 +3,9 @@ return {
     cmd = { "FloatermNew", "FloatermToggle" },
     keys = {
         { "<C-_>", "<CMD>FloatermToggle<CR>", mode = { "n", "t" }, desc = "Toggle Floaterm" },
-        { "<leader>fn", "<CMD>FloatermNew<CR>", mode = "n", desc = "New Floaterm" },
-        { "<leader>fp", "<CMD>FloatermPrev<CR>", mode = "n", desc = "Previous Floaterm" },
-        { "<leader>fx", "<CMD>FloatermNext<CR>", mode = "n", desc = "Next Floaterm" },
+        -- { "<leader>fn", "<CMD>FloatermNew<CR>", mode = "n", desc = "New Floaterm" },
+        -- { "<leader>fp", "<CMD>FloatermPrev<CR>", mode = "n", desc = "Previous Floaterm" },
+        -- { "<leader>fx", "<CMD>FloatermNext<CR>", mode = "n", desc = "Next Floaterm" },
     },
     init = function()
         -- Global configuration

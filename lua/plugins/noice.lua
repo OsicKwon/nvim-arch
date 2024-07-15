@@ -5,6 +5,13 @@ return {
         "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
     },
+    opts = {
+        lsp = {
+            progress = {
+                enabled = true,
+            }
+        }
+    },
     config = function()
         local noice = require("noice")
 

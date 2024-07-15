@@ -4,7 +4,7 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = function()
         return {
-            options = {theme = 'dracula'}
+            options = {theme = 'catppuccin'}  -- dracula
         }
     end,
 }
