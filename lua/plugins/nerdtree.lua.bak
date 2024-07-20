@@ -1,0 +1,12 @@
+return {
+    "preservim/nerdtree",
+    cmd = "NERDTreeToggle",
+    keys = {
+        { "<leader>n", ":NERDTreeToggle<CR>", desc = "Toggle NERDTree" },
+    },
+    config = function()
+        vim.g.NERDTreeShowHidden = 1
+        vim.g.NERDTreeMinimalUI = 1
+        vim.g.NERDTreeDirArrows = 1
+    end,
+}

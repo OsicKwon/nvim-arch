@@ -1,9 +1,13 @@
 return {
     "neovim/nvim-lspconfig",
     -- event = { "BufReadPre", "BufNewFile" },
+    -- cmd = { "LspInfo", "LspInstall" },
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         { "antosha417/nvim-lsp-file-operations", config = true },
+        "j-hui/fidget.nvim",
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
     },
     config = function()
 

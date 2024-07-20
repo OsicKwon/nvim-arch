@@ -1,10 +1,29 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
+    -- branch = "v3.x",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+        -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
+    keys = {
+        {"<leader>n", ":Neotree<CR>", desc = "Neotree"},
+    },
+    config = function()
+        require("neo-tree").setup({
+            filesystem = {
+                filtered_items = {
+                    -- visible = true,  -- hidden file visible included
+                    hide_gitignored = false,
+                },
+            },
+            window = {
+                mappings = {
+                    ["zh"] = "toggle_hidden",
+                    ["H"] = "none",
+                }
+            }
+        })
+    end,
 }

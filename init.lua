@@ -26,6 +26,12 @@ vim.api.nvim_create_autocmd({"FocusGained", "BufEnter"}, {
     command = "checktime"
 })
 
+
+-- Ensure transparency
+vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
+
+
 -- Neovide Configuration :: https://neovide.dev/configuration.html
 if vim.g.neovide then
     -- Scale
@@ -44,7 +50,7 @@ end
 
 
 -- Plugin Options
-vim.notify = require("notify")
+-- vim.notify = require("notify")
 
 
 -- colorscheme
@@ -57,6 +63,10 @@ vim.opt.relativenumber = true
 vim.opt.statuscolumn = "%s %l %r "
 
 
+-- tab
+vim.opt.tabstop = 4
+
+
 -- split
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -67,8 +77,13 @@ vim.opt.ignorecase =true
 vim.o.smartcase =true
 
 
+-- Always show tabline
+vim.opt.showtabline = 2
+
+
 -- path
 vim.opt.autochdir = true
+
 
 -- KEYMAP
 -- 2024-07-14
@@ -82,13 +97,17 @@ vim.keymap.set("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>",
 vim.keymap.set("n", "<leader>r", "<cmd>Telescope live_grep<cr>", { desc = "Live Grep" })
 
 vim.keymap.set("n", "<leader>t", "<cmd>Tagbar<cr>", { desc = "Tagbar" })
-vim.keymap.set("n", "<leader>n", "<cmd>Neotree<cr>", { desc = "Neotree" })
 
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
-vim.keymap.set("n", "<leader>T", "<cmd>Trouble<cr>", { desc = "Trouble" })
+vim.keymap.set("n", "<leader>d", "<cmd>Trouble<cr>", { desc = "Trouble Diagnosis" })
 vim.keymap.set("n", "<leader>c", "<cmd>changes<cr>", { desc = "changes" })
 
 vim.keymap.set("n", "<leader>k", "<cmd>checkhealth<cr>", { desc = "checkhealth" })
+
+vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
+vim.keymap.set("n", "<leader>q", "<cmd>quit<cr>", { desc = "Quit" })
+vim.keymap.set("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit All" })
+vim.keymap.set("n", "<leader><space>", ":", { desc = "Command" })
 
 
 -- local fidget = require("fidget")
