@@ -9,12 +9,18 @@ require("config.lazy")  -- Loading Lazy.nvim package manager
 
 
 -- flash
-require("flash").toggle()  -- enabled 'jump label' as default
+-- WARNING too dangerous when it go into insert mode when it can't find the word that I look for
+-- require("flash").toggle()  -- enabled 'jump label' as default
 
 
 -- lualine
--- require('lualine').get_config()
--- require('lualine').setup()
+require('lualine').get_config()
+require('lualine').setup()
+
+
+-- Plugin Options
+vim.notify = require("notify")
+
 
 
 -- auto reaload buffer when changed externally 2024-07-12
@@ -22,11 +28,6 @@ vim.api.nvim_create_autocmd({"FocusGained", "BufEnter"}, {
     pattern = "*",
     command = "checktime"
 })
-
-
--- Ensure transparency
-vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
 
 
 -- long lines
@@ -50,14 +51,6 @@ if vim.g.neovide then
     vim.g.neovide_cursor_vfx_mode = "pixiedust"
 
 end
-
-
--- Plugin Options
-vim.notify = require("notify")
-
-
--- colorscheme
-vim.cmd.colorscheme "catppuccin"
 
 
 -- line numbers
@@ -99,7 +92,7 @@ vim.opt.autochdir = true
 -- vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
 -- vim.keymap.set("n", "<leader>y", "<cmd>Telescope filetypes<cr>", { desc = "File Types" })
 -- vim.keymap.set("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Fuzzy Find" })
--- vim.keymap.set("n", "<leader>r", "<cmd>Telescope live_grep<cr>", { desc = "Live Grep" })
+-- vim.keymap.set("n", "<leader>r", "<cmd>Telescope grep_string<cr>", { desc = "Grap String" })
 
 
 -- FzfLua
@@ -108,7 +101,7 @@ vim.keymap.set("n", "<leader>h", "<cmd>FzfLua oldfiles<cr>", { desc = "Old Files
 vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
 vim.keymap.set("n", "<leader>y", "<cmd>FzfLua filetypes<cr>", { desc = "File Types" })
 vim.keymap.set("n", "<leader>s", "<cmd>FzfLua blines<cr>", { desc = "Fuzzy Find" })
-vim.keymap.set("n", "<leader>r", "<cmd>FzfLua grep<cr>", { desc = "Live Grep" })
+vim.keymap.set("n", "<leader>r", "<cmd>FzfLua live_grep<cr>", { desc = "Live Grep" })
 
 -- Others
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
@@ -143,5 +136,16 @@ vim.keymap.set("n", "<leader><space>", ":", { desc = "Command" })
 -- end)
 
 
+
+
+-- colorscheme
+-- vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "tokyonight-storm"
+
+
+-- Ensure transparency
+vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
 
 -- EOL --
