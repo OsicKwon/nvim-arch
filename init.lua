@@ -1,5 +1,6 @@
 -- 2024-07-13
 
+
 -- Built-in package manaer
 -- require'lspconfig'.pyright.setup{}
 
@@ -14,12 +15,12 @@ require("config.lazy")  -- Loading Lazy.nvim package manager
 
 
 -- lualine
-require('lualine').get_config()
-require('lualine').setup()
+-- require('lualine').get_config()
+-- require('lualine').setup()
 
 
 -- Plugin Options
-vim.notify = require("notify")
+-- vim.notify = require("notify")
 
 
 
@@ -29,11 +30,15 @@ vim.api.nvim_create_autocmd({"FocusGained", "BufEnter"}, {
     command = "checktime"
 })
 
+-- This locations is matter
+-- vim.g.mapleader ="K"
+-- vim.keymap.set("n", "<space>", ":", { desc = "Command" })
+
+
 
 -- long lines
 vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true, silent = true})
-
 
 
 -- Neovide Configuration :: https://neovide.dev/configuration.html
@@ -50,13 +55,22 @@ if vim.g.neovide then
     -- animation
     vim.g.neovide_cursor_vfx_mode = "pixiedust"
 
+    -- Maximize the window on startup
+    -- vim.g.neovide_fullscreen = true
+
+    -- Optional: Set additional Neovide-specific options
+    vim.g.neovide_remember_window_size = true
+    -- vim.g.neovide_cursor_animation_length = 0.13
+    -- vim.g.neovide_cursor_trail_length = 0.8
+	vim.g.cmdheight=0
+
 end
 
 
--- line numbers
-vim.opt.nu = true
-vim.opt.relativenumber = true
-vim.opt.statuscolumn = "%s %l %r "
+-- -- line numbers
+-- vim.opt.nu = true
+-- vim.opt.relativenumber = true
+-- -- vim.opt.statuscolumn = "%s %l %r "
 
 
 -- tab
@@ -76,7 +90,7 @@ vim.o.smartcase =true
 
 
 -- Always show tabline
-vim.opt.showtabline = 2
+-- vim.opt.showtabline = 2
 
 
 -- path
@@ -95,25 +109,25 @@ vim.opt.autochdir = true
 -- vim.keymap.set("n", "<leader>r", "<cmd>Telescope grep_string<cr>", { desc = "Grap String" })
 
 
--- FzfLua
-vim.keymap.set("n", "<leader>f", "<cmd>FzfLua files<cr>", { desc = "Find Files" })
-vim.keymap.set("n", "<leader>h", "<cmd>FzfLua oldfiles<cr>", { desc = "Old Files" })
-vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
-vim.keymap.set("n", "<leader>y", "<cmd>FzfLua filetypes<cr>", { desc = "File Types" })
-vim.keymap.set("n", "<leader>s", "<cmd>FzfLua blines<cr>", { desc = "Fuzzy Find" })
-vim.keymap.set("n", "<leader>r", "<cmd>FzfLua live_grep<cr>", { desc = "Live Grep" })
+-- -- FzfLua
+-- vim.keymap.set("n", "<leader>f", "<cmd>FzfLua files<cr>", { desc = "Find Files" })
+-- vim.keymap.set("n", "<leader>h", "<cmd>FzfLua oldfiles<cr>", { desc = "Old Files" })
+-- vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
+-- vim.keymap.set("n", "<leader>y", "<cmd>FzfLua filetypes<cr>", { desc = "File Types" })
+-- vim.keymap.set("n", "<leader>s", "<cmd>FzfLua blines<cr>", { desc = "Fuzzy Find" })
+-- vim.keymap.set("n", "<leader>r", "<cmd>FzfLua live_grep<cr>", { desc = "Live Grep" })
 
--- Others
-vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
-vim.keymap.set("n", "<leader>d", "<cmd>Trouble<cr>", { desc = "Trouble Diagnosis" })
-vim.keymap.set("n", "<leader>c", "<cmd>changes<cr>", { desc = "changes" })
-vim.keymap.set("n", "<leader>t", "<cmd>Tagbar<cr>", { desc = "Tagbar" })
+-- -- Others
+-- vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+-- vim.keymap.set("n", "<leader>d", "<cmd>Trouble<cr>", { desc = "Trouble Diagnosis" })
+-- vim.keymap.set("n", "<leader>c", "<cmd>changes<cr>", { desc = "changes" })
+-- vim.keymap.set("n", "<leader>t", "<cmd>Tagbar<cr>", { desc = "Tagbar" })
 
-vim.keymap.set("n", "<leader>k", "<cmd>checkhealth<cr>", { desc = "checkhealth" })
-vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
-vim.keymap.set("n", "<leader>q", "<cmd>quit<cr>", { desc = "Quit" })
-vim.keymap.set("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit All" })
-vim.keymap.set("n", "<leader><space>", ":", { desc = "Command" })
+-- vim.keymap.set("n", "<leader>k", "<cmd>checkhealth<cr>", { desc = "checkhealth" })
+-- vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
+-- vim.keymap.set("n", "<leader>q", "<cmd>quit<cr>", { desc = "Quit" })
+-- vim.keymap.set("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit All" })
+-- vim.keymap.set("n", "<leader><space>", ":", { desc = "Command" })
 
 
 -- local fidget = require("fidget")
@@ -140,12 +154,15 @@ vim.keymap.set("n", "<leader><space>", ":", { desc = "Command" })
 
 -- colorscheme
 -- vim.cmd.colorscheme "catppuccin"
-vim.cmd.colorscheme "tokyonight-storm"
+-- vim.cmd.colorscheme "tokyonight-storm"
 
 
 -- Ensure transparency
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
+
+
+
 
 -- EOL --

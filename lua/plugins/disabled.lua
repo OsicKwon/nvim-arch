@@ -1,0 +1,16 @@
+return {
+    {"catppuccin/nvim", enabled=false},
+    {"folke/tokyonight.nvim", enabled=false},
+    {"folke/which-key.nvim", enabled=false},
+    {"ibhagwan/fzf-lua", enabled=false},
+    {"nvim-lualine/lualine.nvim", enabled=false},
+    {"nvim-telescope/telescope.nvim", enabled=false},
+    {"rcarriga/nvim-notify", enabled=false},
+    {"voldikss/vim-floaterm", enabled=false},
+    {"folke/noice.nvim", enabled=false},
+    {"nvim-neo-tree/neo-tree.nvim", enabled=false},
+    -- {"", enabled=false},
+    -- {"", enabled=false},
+    -- {"", enabled=false},
+    -- {"", enabled=false},
+}
